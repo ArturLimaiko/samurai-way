@@ -1,0 +1,9 @@
+
+
+.content {
+    grid-area: content;
+}
+
+.item {
+ color: #696767;
+}
