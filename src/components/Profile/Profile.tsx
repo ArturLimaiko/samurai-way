@@ -18,7 +18,7 @@ export const Profile = () => {
                     width="300" height="200"/>
             </div>
             <p>Avatar + Description</p>
-         <MyPosts/>
+            <MyPosts/>
         </div>
     );
 };
