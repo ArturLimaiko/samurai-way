@@ -8,7 +8,7 @@ export const Post = (props: any) => {
             <img
                 src="https://bipbap.ru/wp-content/uploads/2022/11/1652235714_41-kartinkin-net-p-prikolnie-kartinki-dlya-stima-44.jpg"/>
             <div>
-                <span>like {props.count}</span>
+                <span>like {props.likesCount}</span>
             </div>
         </div>
     );
