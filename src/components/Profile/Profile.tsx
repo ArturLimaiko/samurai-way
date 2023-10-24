@@ -3,7 +3,7 @@ import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./MyPosts/ProfileInfo/ProfileInfo";
 
 
-export const Profile = () => {
+export const Profile = (props : any) => {
     return (
         <div>
             <ProfileInfo/>

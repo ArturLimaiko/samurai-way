@@ -10,7 +10,7 @@ import {Settings} from "./components/Settings/Settings";
 import {BrowserRouter, Route} from 'react-router-dom';
 
 
-function App() {
+function App(props: any) {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -19,6 +19,7 @@ function App() {
                 {/*<Profile/>*/}
 
                 <div className='app-wrapper-content'>
+                    {/*//Route - компонента которая следит за url если она вдруг увидит что url поменяется и равен например dialogs то она подгрузит компоненту component={Dialogs} */}
                     <Route path='/profile' component={Profile}/>
                     <Route path='/dialogs' component={Dialogs}/>
                     <Route path='/news' component={News}/>
