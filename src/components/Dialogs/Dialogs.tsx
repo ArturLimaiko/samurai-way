@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import s from './Dialogs.module.css'
+import {message} from "antd";
 
 //подкомпонента DialogItem
 const DialogItem = (props: any) => {
@@ -21,7 +22,7 @@ const Message = (props: any) => {
 
 export const Dialogs = () => {
 
-    let dialogsData = [
+    let dialogs = [
         {id: 1, name: 'Valera'},
         {id: 2, name: 'Misha'},
         {id: 3, name: 'Gena'},
@@ -30,8 +31,7 @@ export const Dialogs = () => {
         {id: 6, name: 'Nikita'},
     ]
 
-
-    let messagesData = [
+    let messages = [
         {id: 1, message: 'How are you?'},
         {id: 2, message: 'This message will be delete'},
         {id: 3, message: 'YO BRO!'},
@@ -40,24 +40,24 @@ export const Dialogs = () => {
         {id: 6, message: 'when were you go?'}
     ]
 
+
+    //получаем данные ТИПА с сервера(НЕТ) и мапимся по ним.
+// получаем jsx элемент заполненный пропсами name={d.name} id={d.id} и message={m.message} id={m.id}
+    let dialogsElements = dialogs
+        .map(d => <DialogItem name={d.name} id={d.id}/>);
+    let messagesElements = messages
+        .map(m => <Message message={m.message} id={m.id}/>)
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
                 <h2>Dialogs</h2>
-                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
-                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
-                <DialogItem name={dialogsData[2].name} id={dialogsData[2].id}/>
-                <DialogItem name={dialogsData[3].name} id={dialogsData[3].id}/>
-                <DialogItem name={dialogsData[4].name} id={dialogsData[4].id}/>
-                <DialogItem name={dialogsData[5].name} id={dialogsData[5].id}/>
-
+                <div>{dialogsElements}</div>
             </div>
             <div className={s.messages}>
                 <h2>Messages</h2>
-                <Message message={messagesData[0].message} id={messagesData[0].id}/>
-                <Message message={messagesData[1].message} id={messagesData[1].id}/>
-
-                    </div>
-                    </div>
-                    );
-                };
+                <div>{messagesElements}</div>
+            </div>
+        </div>
+    );
+};

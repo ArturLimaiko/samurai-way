@@ -4,7 +4,7 @@ import s from './MyPosts.module.css'
 
 export const MyPosts = (props: any) => {
 
-    let postsData = [
+    let posts = [
         {id: 1, message: 'Valera', likesCount: 22},
         {id: 2, message: 'Misha', likesCount: 413},
         {id: 3, message: 'Gena', likesCount: 212},
@@ -12,6 +12,9 @@ export const MyPosts = (props: any) => {
         {id: 5, message: 'Artur', likesCount: 123},
         {id: 6, message: 'Nikita', likesCount: 11},
     ]
+
+    let postsElements = posts
+        .map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
 
     return (
@@ -26,9 +29,7 @@ export const MyPosts = (props: any) => {
                 </div>
             </div>
             <div className={s.posts}>
-                <Post message={postsData[0].message} likesCount={postsData[0].likesCount}/>
-                <Post message={postsData[1].message} likesCount={postsData[1].likesCount}/>
-                <Post message={postsData[2].message} likesCount={postsData[2].likesCount}/>
+                {postsElements}
             </div>
         </div>
     );
