@@ -10,6 +10,7 @@ import {Settings} from "./components/Settings/Settings";
 import {BrowserRouter, Route} from 'react-router-dom';
 
 
+
 function App(props: any) {
     return (
         <BrowserRouter>
@@ -19,9 +20,11 @@ function App(props: any) {
                 {/*<Profile/>*/}
 
                 <div className='app-wrapper-content'>
-                    {/*//Route - компонента которая следит за url если она вдруг увидит что url поменяется и равен например dialogs то она подгрузит компоненту component={Dialogs} */}
-                    <Route path='/profile' component={Profile}/>
-                    <Route path='/dialogs' component={Dialogs}/>
+
+                    {/*что бы передать пропсы. Route может получить props через метод render и передаем туда стрелочную функцию в которую мы передадим функцию Dialogs и Profile*/}
+                    <Route path='/dialogs' render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
+                    <Route path='/profile' render={() => <Profile post={props.posts}/>}/>
+
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>

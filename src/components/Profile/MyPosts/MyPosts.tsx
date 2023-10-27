@@ -1,15 +1,14 @@
 import React from 'react';
 import {Post} from "./Post/Post";
 import s from './MyPosts.module.css'
-import {posts} from "../../../index";
-
-export const MyPosts = (props: any) => {
 
 
-    let postsElements = posts
-        .map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+type  postPropsType = {
+    posts: {id: number, message: string, likesCount: number}[]
+}
 
-
+export const MyPosts:React.FC<postPropsType> = (props: postPropsType) => {
+    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>

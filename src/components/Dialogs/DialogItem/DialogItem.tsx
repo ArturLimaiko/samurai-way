@@ -4,7 +4,7 @@ import s from './../Dialogs.module.css'
 
 
 //подкомпонента DialogItem
- export const DialogItem = (props: any) => {
+export const DialogItem = (props: any) => {
     let path = '/dialogs/' + props.id;
     return (
         <div className={s.dialog + ' ' + s.active}>
