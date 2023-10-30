@@ -6,7 +6,7 @@ import {Message} from "./Message/Message";
 
 export type  DialogsPropsType = {
     dialogs: { id: number, name: string }[]
-    messages: {id: number, message: string}[]
+    messages: { id: number, message: string }[]
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = ({dialogs, messages}) => {
