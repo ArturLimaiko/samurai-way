@@ -10,7 +10,6 @@ import {Settings} from "./components/Settings/Settings";
 import {BrowserRouter, Route} from 'react-router-dom';
 
 
-
 function App(props: any) {
     return (
         <BrowserRouter>
@@ -22,8 +21,8 @@ function App(props: any) {
                 <div className='app-wrapper-content'>
 
                     {/*что бы передать пропсы. Route может получить props через метод render и передаем туда стрелочную функцию в которую мы передадим функцию Dialogs и Profile*/}
-                    <Route path='/dialogs' render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
-                    <Route path='/profile' render={() => <Profile post={props.posts}/>}/>
+                    <Route path='/dialogs' render={() => <Dialogs dialogs={props.state.dialogsPage.dialogs} messages={props.state.dialogsPage.messages}/>}/>
+                    <Route path='/profile' render={() => <Profile posts={props.state.profilePage}/>}/>
 
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
